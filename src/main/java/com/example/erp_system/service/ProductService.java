@@ -32,7 +32,7 @@ public class ProductService {
             productEntity.setStock(stock);
             productEntity.setKdv(kdvRepository.findByUuid(kdv.getUuid()));
             productEntity.setOrderCount(1);
-            isKdvTruePrice(productEntity);
+            kdvTruePrice(productEntity);
             productRepository.save(productEntity);
             return true;
         }
@@ -51,7 +51,7 @@ public class ProductService {
             existingProduct.setNonKdvAppliedPrice(productEntity.getNonKdvAppliedPrice());
             existingProduct.setStock(productEntity.getStock());
             existingProduct.setKdv(productEntity.getKdv());
-            isKdvTruePrice(existingProduct);
+            kdvTruePrice(existingProduct);
             productRepository.save(existingProduct);
             return true;
         }
@@ -78,12 +78,12 @@ public class ProductService {
         return productRepository.findAllByNameContainsIgnoreCase(name);
     }
 
-    public void isKdvTruePrice(ProductEntity product) {
+    public void kdvTruePrice(ProductEntity product) {
         BigDecimal kdv = product.getKdv().getPercent();
         BigDecimal price = product.getPrice();
         if (!product.getIsKdvApplied()) {
             product.setNonKdvAppliedPrice(price);
-            BigDecimal kdvPrice = price.multiply(kdv);
+            BigDecimal kdvPrice = (price.multiply(kdv)).divide(new BigDecimal(100));
             BigDecimal totalPrice = price.add(kdvPrice);
             product.setPrice(totalPrice);
         } else {

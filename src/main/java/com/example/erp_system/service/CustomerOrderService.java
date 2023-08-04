@@ -115,6 +115,8 @@ public class CustomerOrderService {
                 if (productEntity.getStock() < productEntity.getOrderCount()) {
                     customerOrder.setStatus(StatusEnum.REJECTED);
                     customerOrderRepository.save(customerOrder);
+                    calculateTotalPrice(customerOrderRepository.findByUuid(customerOrderUuid).getUuid());
+                    return customerOrder;
                 } else {
                     customerOrder.setStatus(StatusEnum.APPROVED);
                     productEntity.setStock(productEntity.getStock() - productEntity.getOrderCount());

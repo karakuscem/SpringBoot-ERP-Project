@@ -65,8 +65,3 @@ public class CustomerOrderController {
                 , HttpStatus.OK);
     }
 }
-
-/*
-ba70f1a0-4d39-4455-b32d-61bc100fdfd2
-757bc07a-b702-4e13-ac8a-4adfe444fe36
- */
