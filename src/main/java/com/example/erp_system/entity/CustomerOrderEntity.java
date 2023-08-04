@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+// CustomerOrderEntity database için bir tablodur. Bu tablo BaseEntity sınıfından türetilmiştir.
+// Diğer tablolarla ilişkili olduğu için ilişkili olduğu tabloların id'lerini tutar.
+// Tablolar arasındaki ilişkileri @OneToOne, @OneToMany, @ManyToOne, @ManyToMany annotationları ile belirtiriz.
 @Entity
 @Table
 @Data

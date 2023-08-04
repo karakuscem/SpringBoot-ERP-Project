@@ -6,6 +6,7 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+// CustomerEntity database için bir tablodur. Bu tablo BaseEntity sınıfından türetilmiştir.
 @Entity
 @Table
 @Data

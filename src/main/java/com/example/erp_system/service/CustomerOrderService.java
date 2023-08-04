@@ -13,6 +13,10 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+// Customer Order ile alakalı tüm işlemler burada yapılır. Customer Order'ın oluşturulması,
+// silinmesi, güncellenmesi, listelenmesi gibi işlemler burada yapılır.
+// Ayrıca product'ların customer order'a eklenmesi ve customer order'ın toplam fiyatının hesaplanması
+// gibi işlemler de burada yapılır.
 @Service
 public class CustomerOrderService {
     @Autowired

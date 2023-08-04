@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+// CustomerController customer ile alakalı istekleri karşılar. CustomerService ile iletişim kurar.
+// Customer ile alakalı her istek buradan geçer. Burada silme, güncelleme, ekleme, listeleme gibi işlemler yapılır.
 @RestController
 @RequestMapping("customer")
 public class CustomerController {

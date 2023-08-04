@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+// ProductController product ile alakalı istekleri karşılar. ProductService ile iletişim kurar.
+// Product ile alakalı her istek buradan geçer. Burada silme, güncelleme, ekleme, listeleme gibi işlemler yapılır.
 @RestController
 @RequestMapping("product")
 public class ProductController {

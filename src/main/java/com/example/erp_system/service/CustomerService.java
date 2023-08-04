@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
+// Customer ile ilgili işlemlerin yapıldığı sınıf
+// yaratma ve listelemeye yönelik metodlar bulunuyor
 @Service
 public class CustomerService {
     @Autowired

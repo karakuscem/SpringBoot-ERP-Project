@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+// Product ile ilgili işlemlerin yapıldığı servis sınıfı
+// yaratma ve listelemeye yönelik metodlar bulunuyor
 @Service
 public class ProductService {
     @Autowired

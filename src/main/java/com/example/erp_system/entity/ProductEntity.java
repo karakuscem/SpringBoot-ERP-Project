@@ -5,6 +5,12 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+
+// ProductEntity bir tablodur içerisinde ürünler tutulur.
+// Ürünlerin fiyatları, stokları, isimleri, kdv oranları tutulur.
+// Ürünlerin kdv oranları KdvEntity tablosundan alınır.
+// Ürünlerin fiyatları kdv oranlarına göre hesaplanır.
+// Ürünlerin stoklarına göre sipariş verilir.
 @Entity
 @Table
 @Data

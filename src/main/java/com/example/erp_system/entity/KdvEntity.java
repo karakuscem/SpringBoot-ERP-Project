@@ -8,6 +8,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+// KdvEntity bir tablodur içerisinde kdv oranları tutulur.
 @Entity
 @Table
 @Data

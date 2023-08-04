@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+// CustomerOrder CustomerOrder ile ilgili işlemleri yapmak için kullanılan controller sınıfıdır.
+// CustomerOrderService sınıfı ile iletişim kurar. CustomerOrder ile alakalı
+// silme, ekleme, güncelleme, listeleme işlemlerini yapar.
 @RestController
 @RequestMapping("customerOrder")
 public class CustomerOrderController {

@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+
+// Kdv ile ilgili işlemlerin yapıldığı servis sınıfı
 @Service
 public class KdvService {
     @Autowired

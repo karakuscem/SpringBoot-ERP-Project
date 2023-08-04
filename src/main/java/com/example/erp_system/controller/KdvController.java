@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+// KdvController kdv ile alakalı istekleri karşılar. KdvService ile iletişim kurar.
+// Kdv ile alakalı her istek buradan geçer. Burada silme, güncelleme, ekleme, listeleme gibi işlemler yapılır.
 @RestController
 @RequestMapping("kdv")
 public class KdvController {

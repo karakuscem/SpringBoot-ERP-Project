@@ -5,6 +5,7 @@ public enum StatusEnum {
     WAITING,
     REJECTED;
 
+    // verilen string değere göre enum döndürür
     public static StatusEnum fromString(String status) {
         return switch (status) {
             case "approved" -> APPROVED;

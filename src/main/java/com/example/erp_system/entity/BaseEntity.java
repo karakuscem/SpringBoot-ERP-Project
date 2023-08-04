@@ -12,6 +12,7 @@ import java.sql.Types;
 import java.util.Date;
 import java.util.UUID;
 
+// BaseEntity tüm entitylerin ortak özelliklerini barındıran bir sınıftır. Uuid ve id alanları bu sınıfta tanımlanmıştır.
 @MappedSuperclass
 @Data
 @EntityListeners({AuditingEntityListener.class})
