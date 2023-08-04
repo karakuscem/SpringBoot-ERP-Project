@@ -37,7 +37,7 @@ public class ProductController {
 
     @Modifying
     @Transactional
-    @GetMapping("delete/{uuid}")
+    @DeleteMapping("delete/{uuid}")
     public ResponseEntity<Boolean> deleteByUuid(@PathVariable UUID uuid) {
         return new ResponseEntity<>(productService.deleteProduct(uuid), HttpStatus.OK);
     }

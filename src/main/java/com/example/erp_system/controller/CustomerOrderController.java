@@ -3,7 +3,9 @@ package com.example.erp_system.controller;
 import com.example.erp_system.entity.CustomerOrderEntity;
 import com.example.erp_system.service.CustomerOrderService;
 import com.example.erp_system.util.StatusEnum;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +47,8 @@ public class CustomerOrderController {
     public ResponseEntity<Boolean> updateCustomerOrder(@PathVariable UUID uuid, @RequestBody CustomerOrderEntity customerOrder) {
         return new ResponseEntity<>(customerOrderService.updateCustomerOrderEntity(uuid, customerOrder), HttpStatus.OK);
     }
-
+    @Modifying
+    @Transactional
     @DeleteMapping("delete/{uuid}")
     public ResponseEntity<Boolean> deleteCustomerOrder(@PathVariable UUID uuid) {
         return new ResponseEntity<>(customerOrderService.deleteCustomerOrderEntity(uuid), HttpStatus.OK);
