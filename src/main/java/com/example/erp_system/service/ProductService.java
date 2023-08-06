@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
+import java.math.MathContext;
 
 // Product ile ilgili işlemlerin yapıldığı servis sınıfı
 // yaratma ve listelemeye yönelik metodlar bulunuyor
@@ -81,14 +82,17 @@ public class ProductService {
     public void kdvTruePrice(ProductEntity product) {
         BigDecimal kdv = product.getKdv().getPercent();
         BigDecimal price = product.getPrice();
+        BigDecimal totalPrice;
+        BigDecimal kdvPrice;
         if (!product.getIsKdvApplied()) {
             product.setNonKdvAppliedPrice(price);
-            BigDecimal kdvPrice = (price.multiply(kdv)).divide(new BigDecimal(100));
-            BigDecimal totalPrice = price.add(kdvPrice);
+            kdvPrice = (price.multiply(kdv)).divide(new BigDecimal(100), MathContext.DECIMAL32);
+            totalPrice = price.add(kdvPrice);
             product.setPrice(totalPrice);
         } else {
-            BigDecimal kdvPrice = price.multiply(kdv.divide(BigDecimal.valueOf(100)));
-            BigDecimal nonKdvPrice = price.subtract(kdvPrice);
+            totalPrice = price;
+            BigDecimal nonKdvPrice = (totalPrice.multiply(new BigDecimal(100))).divide((new BigDecimal(100)).add(kdv), MathContext.DECIMAL32);
+            kdvPrice = totalPrice.subtract(nonKdvPrice);
             product.setNonKdvAppliedPrice(nonKdvPrice);
         }
     }
